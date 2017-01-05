@@ -19,7 +19,7 @@ app.get('/',function(req,res){
         'software':softwareInfo,
     } 
     res.send(JSON.stringify(jsonObj));
-    console.log(req.headers['x-forwarded-for'],req.connection.remoteAddress);
+    console.log(req.headers,req.headers['x-forwarded-for'],req.connection.remoteAddress,req.ip);
 })
 
 app.listen(app.get('port'), function() {
