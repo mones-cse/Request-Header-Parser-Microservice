@@ -8,7 +8,8 @@ app.set('port',(process.env.PORT || 5000))
 
 app.get('/',function(req,res){
     res.setHeader("Content-Type","application/json");
-    var ipInfo =req.headers.host;
+    // var ipInfo =req.headers.host;
+    var ipInfo =req.headers['x-forwarded-for']||req.connection.remoteAddress
     var langInfo =req.headers['accept-language'].split(',')[0];
     var softwareInfo = req.headers['user-agent'];
     softwareInfo =  softwareInfo.slice(softwareInfo.indexOf('(')+1,softwareInfo.indexOf(')'));  
@@ -18,6 +19,7 @@ app.get('/',function(req,res){
         'software':softwareInfo,
     } 
     res.send(JSON.stringify(jsonObj));
+    console.log(req.headers['x-forwarded-for'],req.connection.remoteAddress);
 })
 
 app.listen(app.get('port'), function() {
