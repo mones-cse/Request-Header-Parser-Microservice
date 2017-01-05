@@ -1,0 +1,8 @@
+{
+  "name": "Request Header Parser Microservice",
+  "description": "Request Header Parser Microservice for free code camp",
+  "repository": "git+https://github.com/mones-cse/Request-Header-Parser-Microservice.git",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express"],
+  "image": "heroku/nodejs"
+}
